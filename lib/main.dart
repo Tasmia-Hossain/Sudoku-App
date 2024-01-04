@@ -10,7 +10,7 @@ void main() {
     routes: {
       'loading_page':(context)=>Loading(),
       'home_page':(context)=>Homepage(),
-      'game_mode':(context)=>Mode()
+      'game_mode':(context)=>Mode(gameMode: '')
     },
   ));
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sudoku/game_mode.dart';
 
 class Homepage extends StatefulWidget {
-  const Homepage({super.key});
+  const Homepage({Key? key}) : super(key: key);
 
   @override
   State<Homepage> createState() => _HomepageState();
@@ -20,15 +20,14 @@ class _HomepageState extends State<Homepage> {
             Text(
               'SUDOKU',
               style: TextStyle(
-                fontSize: 25, // adjust the font size as needed
+                fontSize: 25,
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 15),
             Image.network(
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM8Hew8cRa8Gk5FOw5GMbbf1Numi4bWXGx-A&usqp=CAU', // Replace with the URL of your network image
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM8Hew8cRa8Gk5FOw5GMbbf1Numi4bWXGx-A&usqp=CAU',
               height: 150,
-              // You can also provide additional parameters such as width, fit, etc.
             ),
             SizedBox(height: 30),
             ElevatedButton(
@@ -44,11 +43,8 @@ class _HomepageState extends State<Homepage> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Navigate to the game screen
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Mode()),
-                );
+                // Show the game mode selection bottom sheet
+                _showGameModeBottomSheet(context);
               },
               child: Text('New Game'),
             ),
@@ -74,10 +70,65 @@ class _HomepageState extends State<Homepage> {
               },
               child: Text('Settings'),
             ),
-
           ],
         ),
       ),
+    );
+  }
+
+  void _showGameModeBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          padding: EdgeInsets.all(16),
+          width: double.infinity, // Set width to match screen width
+          decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  // Start a new game with easy mode
+                  _navigateToMode(context, 'Easy');
+                },
+                child: Text('Easy'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Start a new game with medium mode
+                  _navigateToMode(context, 'Medium');
+                },
+                child: Text('Medium'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Start a new game with hard mode
+                  _navigateToMode(context, 'Hard');
+                },
+                child: Text('Hard'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Start a new game with expert mode
+                  _navigateToMode(context, 'Expert');
+                },
+                child: Text('Expert'),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  void _navigateToMode(BuildContext context, String gameMode) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Mode(gameMode: gameMode)),
     );
   }
 }

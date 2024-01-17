@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sudoku/game_mode.dart';
 
+import 'game_screen.dart';
+
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
 
@@ -129,21 +131,6 @@ class _HomepageState extends State<Homepage> {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => Mode(gameMode: gameMode)),
-    );
-  }
-}
-
-// Placeholder screens for illustration purposes
-class GameScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Sudoku Game - Play'),
-      ),
-      body: Center(
-        child: Text('Game Screen'),
-      ),
     );
   }
 }

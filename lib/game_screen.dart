@@ -137,10 +137,7 @@ class _GameScreenState extends State<GameScreen>{
     // You can implement your own Sudoku generation algorithm here.
     // For simplicity, let's use a hardcoded Sudoku board.
     int num=0;//Difficulty Level: Easy 32, Medium 54, Hard 69,
-    if (diff=="DEVELOPER"){
-      num=18;
-    }
-    else if(diff =="EASY"){
+    if(diff =="EASY"){
       num=27;
     }
     else if(diff =="MEDIUM"){
@@ -430,3 +427,4 @@ class _GameScreenState extends State<GameScreen>{
   // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 }
+

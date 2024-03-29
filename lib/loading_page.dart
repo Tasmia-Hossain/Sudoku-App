@@ -33,16 +33,18 @@ class _LoadingState extends State<Loading> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'SUDOKU',
+              'SUDOKU\n \tBLISS',
               style: TextStyle(
                 fontSize: 40, // adjust the font size as needed
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 20),
-            Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM8Hew8cRa8Gk5FOw5GMbbf1Numi4bWXGx-A&usqp=CAU',
+            Image.network(
+              'https://raw.githubusercontent.com/abu-dojana/SudoSolver-Bliss/master/sudokubliss.png',
               height: 150,
             ),
+
             SizedBox(height: 15),
             Text(
               'Keep your mind sharp',
@@ -54,7 +56,7 @@ class _LoadingState extends State<Loading> {
           ],
         ),
       ),
-      
+
     );
   }
 }

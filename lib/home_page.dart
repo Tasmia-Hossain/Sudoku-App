@@ -32,7 +32,7 @@ class Homepage extends StatelessWidget {
               },
               child: Text('Load Game'),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Times t = new Times();
